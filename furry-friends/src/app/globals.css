@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 :root {
+  --accent-100: #FE2B02;
+  --secondary: #FFEB3B;
+  --accent-50: #FE4E2C;
+  --primary: #FFCDD2;
+  --text-dark: #222222;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
