@@ -23,12 +23,13 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+}
+
+.text-stroke {
+  color: var(--accent-100);
+  -webkit-text-fill-color: var(--primary);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(--accent-100);
 }
 
 @layer utilities {
