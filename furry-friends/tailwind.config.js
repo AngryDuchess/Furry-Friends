@@ -10,12 +10,20 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      backgroundImage: theme => ({
+        'hero-pattern': "url('https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716221277/paws-bg_nkyk44.png')",
+      }),
+      backgroundColor: theme => ({
+        'hero-bg': "#FFCDD2"
+      }),
+      colors: {
+        dark: 'var(--text-dark)',
+        accent: 'var(--accent-100)',
+        // accent50: 'var(--accent-50)',
+        secondary: 'var(--secondary)',
+
       },
-    },
+    }
   },
   plugins: [
     require("flowbite/plugin")
