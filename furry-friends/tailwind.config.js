@@ -19,8 +19,11 @@ module.exports = {
       colors: {
         dark: 'var(--text-dark)',
         accent: 'var(--accent-100)',
-        // accent50: 'var(--accent-50)',
+        accentpale: 'var(--accent-50)',
+        accentpaler: "#FFB8AB",
         secondary: 'var(--secondary)',
+        secondarydeep: 'var(--secondary-60)',
+        palepink: '#FDEBE7'
 
       },
     }
