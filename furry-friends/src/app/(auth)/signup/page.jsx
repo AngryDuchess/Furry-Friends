@@ -1,10 +1,17 @@
 import { merriweather } from "@/app/fonts";
+import Link from "next/link";
 
 export default function Page() {
   return (
     <>
       <div className="flex flex-col-reverse md:flex-row justify-between h-screen">
-        <div className="flex-grow mt-5 mb-12 mx-4 overflow-y-auto">
+        <div className="flex-grow pt-5 pb-12 mx-4 md:ms-16 overflow-y-auto">
+            <Link
+            href="/"
+            className="flex items-center space-x-3 rtl:space-x-reverse"
+          >
+            <img src="/logo.svg"></img>
+          </Link>
           <p
             className={`text-dark ${merriweather.className} text-4xl mb-2 md:mt-14 `}
           >
@@ -74,7 +81,7 @@ export default function Page() {
                 required
               />
             </div>
-            <div class="mb-5">
+            <div class="mb-2">
               <label
                 htmlFor="password"
                 className="block mb-2 text-sm font-semibold text-dark dark:text-white"
@@ -106,13 +113,17 @@ export default function Page() {
                 Show password
               </label>
             </div>
+            <p className="text-light text-sm">By signing up, you agree to our <Link className="text-bluebase hover:underline" href="/signin">terms and conditions</Link></p>
+            <div className="text-center">
+
             <button
               type="submit"
-              style={{ backgroundColor: "var(--accent-100)" }}
-              className="text-white lg:px-8 py-4 font-medium rounded-full text-sm px-8 text-center hover:bg-red-500 w-full"
-            >
+              className="text-white mb-3 lg:px-8 py-4 mt-12 font-medium rounded-full text-sm px-8 text-center bg-accent hover:bg-accentdeep w-full"
+              >
                 Let's go!
             </button>
+            <p className="text-light text-sm font-semibold">Already have an account? <Link className="text-bluebase hover:underline" href="/signin">Login</Link></p>
+              </div>
           </form>
         </div>
         <div className="bg-palepink flex md:flex-grow justify-center items-center overflow-hidden">
