@@ -9,7 +9,7 @@ export default function NavBar() {
   return (
     <>
       <nav className="bg-gray-900 backdrop-filter backdrop-blur-md bg-opacity-50 border-b-[1px] border-gray-500 dark:bg-gray-900 sticky z-20 top-0 start-0 w-full">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-4 md:mx-16 p-4">
           <Link
             href="/landingpage"
             className="flex items-center space-x-3 rtl:space-x-reverse"
@@ -24,15 +24,15 @@ export default function NavBar() {
             >
               Log in
             </button>
+            <Link href="/signup">
             <button
               type="button"
-              style={{ backgroundColor: "var(--accent-100)" }}
-              className="text-white lg:px-8 py-4 font-medium rounded-full text-sm px-8 text-center hover:bg-red-500"
+              // style={{ backgroundColor: "var(--accent-100)" }}
+              className="text-white lg:px-8 py-4 font-medium rounded-full text-sm px-8 text-center bg-accent hover:bg-accentdeep"
             >
-              <Link href="/signup">
                 Sign up
-              </Link>
             </button>
+              </Link>
             <button
               data-collapse-toggle="navbar-cta"
               type="button"
@@ -47,21 +47,6 @@ export default function NavBar() {
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
               />
-              {/* <svg
-                className="w-5 h-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 17 14"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M1 1h15M1 7h15M1 13h15"
-                />
-              </svg> */}
             </button>
           </div>
           <div
@@ -70,7 +55,7 @@ export default function NavBar() {
             } w-full md:flex md:w-auto md:order-1`}
             id="navbar-cta"
           >
-            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md: dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="flex flex-col text-sm font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md: dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
                 <a
                   href="#"
@@ -84,7 +69,7 @@ export default function NavBar() {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondarypale md:dark:hover:text-secondarypale dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Why adopt?
                 </a>
@@ -92,7 +77,7 @@ export default function NavBar() {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondarypale md:dark:hover:text-secondarypale dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Paw-some tips
                 </a>
@@ -100,7 +85,7 @@ export default function NavBar() {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondarypale md:dark:hover:text-secondarypale dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Shop
                 </a>
@@ -108,7 +93,7 @@ export default function NavBar() {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondarypale md:dark:hover:text-secondarypale dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Be a pet hero
                 </a>
@@ -117,24 +102,6 @@ export default function NavBar() {
           </div>
         </div>
       </nav>
-
-      {/* <nav className='w-full py-4 px-4 bg-gray-900 bg-blur-lg bg-opacity-40 flex flex-row justify-between items-center'>
-                <img src="/logo.svg"></img>
-                    
-                <div className="flex flex-row justify-between gap-5">
-                    <button style={{backgroundColor: 'var(--accent)'}} className="py-3 p-8 rounded-full">Sign up</button>
-                    <HambergerMenu className="cursor-pointer lg:hidden" size="44" onClick={() => setIsMenuOpen(!isMenuOpen)} />
-                </div>
-            </nav>
-            <div className="bg-white text-black font-semibold w-full">
-                <ul className={`p-4 lg:flex lg:justify-between ${isMenuOpen ? 'block' : 'hidden'} lg:block`}>
-                    <li className="p-3">Home</li>
-                    <li className="p-3">Why adopt?</li>
-                    <li className="p-3">Paw-some tips</li>
-                    <li className="p-3">Shop</li>
-                    <li className="p-3">Be a pet hero</li>
-                </ul>
-            </div> */}
     </>
   );
 }
