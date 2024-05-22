@@ -18,13 +18,16 @@ module.exports = {
       }),
       colors: {
         dark: 'var(--text-dark)',
+        light: '#565656',
         accent: 'var(--accent-100)',
         accentpale: 'var(--accent-50)',
         accentpaler: "#FFB8AB",
+        accentdeep: '#D42402',
         secondary: 'var(--secondary)',
         secondarydeep: 'var(--secondary-60)',
-        palepink: '#FDEBE7'
-
+        secondarypale: '#FFF59D',
+        palepink: '#FDEBE7',
+        bluebase: '#3789CC'
       },
     }
   },
