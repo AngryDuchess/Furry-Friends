@@ -1,6 +1,7 @@
 import { merriweather } from "@/app/fonts";
 import { ArrowRight2 } from "iconsax-react";
 
+
 export default function Hero() {
   return (
     <>
@@ -15,7 +16,7 @@ export default function Hero() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="md:flex flex-row justify-between md:ms-12">
+        <div className="md:flex flex-row justify-between md:ms-16">
           <div className="mb-20 ">
             <p
               className={`text-[40px] pt-14 md:pt-24 font-bold leading-none md:text-6xl ${merriweather.className}`}
