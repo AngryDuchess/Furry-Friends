@@ -21,7 +21,7 @@ export default function Page() {
             You are one step closer to finding your new best friend 💞
           </p>
           <form className="max-w-sm">
-            <div class="mb-5">
+            <div cclassName="mb-5">
               <label
                 htmlFor="text"
                 className="block mb-2 text-sm font-semibold text-dark dark:text-white"
@@ -31,12 +31,12 @@ export default function Page() {
               <input
                 type="text"
                 id="firstname"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
+                clclassName="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
                 placeholder="Your first name eg: Teddy"
                 required
               />
             </div>
-            <div class="mb-5">
+            <div className="mb-5">
               <label
                 htmlFor="text"
                 className="block mb-2 text-sm font-semibold text-dark dark:text-white"
@@ -46,12 +46,12 @@ export default function Page() {
               <input
                 type="text"
                 id="lastname"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
                 placeholder="Your last name eg: Mahama"
                 required
               />
             </div>
-            <div class="mb-5">
+            <div className="mb-5">
               <label
                 htmlFor="email"
                 className="block mb-2 text-sm font-semibold text-dark dark:text-white"
@@ -61,12 +61,12 @@ export default function Page() {
               <input
                 type="email"
                 id="email"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
                 placeholder="teddy@furryfriends.com"
                 required
               />
             </div>
-            <div class="mb-5">
+            <div className="mb-5">
               <label
                 htmlFor="number "
                 className="block mb-2 text-sm font-semibold text-dark dark:text-white"
@@ -76,12 +76,12 @@ export default function Page() {
               <input
                 type="number"
                 id="phone"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
                 placeholder="Your phone number"
                 required
               />
             </div>
-            <div class="mb-2">
+            <div className="mb-2">
               <label
                 htmlFor="password"
                 className="block mb-2 text-sm font-semibold text-dark dark:text-white"
@@ -91,24 +91,24 @@ export default function Page() {
               <input
                 type="password"
                 id="password"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
                 placeholder="Your new password"
                 required
               />
             </div>
-            <div class="flex items-start mb-5">
-              <div class="flex items-center h-5">
+            <div className="flex items-start mb-5">
+              <div className="flex items-center h-5">
                 <input
                   id="remember"
                   type="checkbox"
                   value=""
-                  class="w-4 h-4 border border-gray-300 rounded checked:bg-accent bg-gray-50 focus:ring-3 focus:ring-accentpaler dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+                  className="w-4 h-4 border border-gray-300 rounded checked:bg-accent bg-gray-50 focus:ring-3 focus:ring-accentpaler dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
                   required
                 />
               </div>
               <label
-                for="remember"
-                class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                htmlFor="remember"
+                className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 Show password
               </label>
