@@ -17,13 +17,15 @@ export default function NavBar() {
             <img src="/logo.svg"></img>
           </Link>
           <div className="flex gap-2 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <Link href="/signin">
             <button
               type="button"
               //   style={{backgroundColor: 'var(--accent-100)'}}
               className=" hidden md:block text-accent bg-white lg:px-8 py-4 font-medium rounded-full text-sm px-8 text-center hover:bg-red-100 "
-            >
+              >
               Log in
             </button>
+              </Link>
             <Link href="/signup">
             <button
               type="button"
