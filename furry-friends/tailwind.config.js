@@ -27,7 +27,8 @@ module.exports = {
         secondarydeep: 'var(--secondary-60)',
         secondarypale: '#FFF59D',
         palepink: '#FDEBE7',
-        bluebase: '#3789CC'
+        bluebase: '#3789CC',
+        greybase: '#ABABAB'
       },
     }
   },
