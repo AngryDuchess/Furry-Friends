@@ -22,13 +22,15 @@ module.exports = {
         accent: 'var(--accent-100)',
         accentpale: 'var(--accent-50)',
         accentpaler: "#FFB8AB",
+        accentpalest: "#FE9580",
         accentdeep: '#D42402',
         secondary: 'var(--secondary)',
         secondarydeep: 'var(--secondary-60)',
         secondarypale: '#FFF59D',
         palepink: '#FDEBE7',
         bluebase: '#3789CC',
-        greybase: '#ABABAB'
+        greybase: '#ABABAB',
+        palegreen: '#99D29C',
       },
     }
   },
