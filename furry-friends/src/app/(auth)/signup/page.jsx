@@ -113,7 +113,7 @@ export default function Page() {
                     value=""
                     className="w-4 h-4 border border-gray-300 rounded checked:bg-accent bg-gray-50 focus:ring-3 focus:ring-accentpaler dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
                     required
-                  />
+                    />
                 </div>
                 <label
                   htmlFor="remember"
@@ -129,6 +129,9 @@ export default function Page() {
               onClick={() => {setOpenModal(true)}}>
                 terms and conditions
               </button>
+                {openModal && 
+                (<TermsModal isOpen={openModal} onClose={() => setOpenModal(false)}/>)
+                }
             </p>
             <div className="text-center flex flex-col gap-2">
               <button
@@ -152,11 +155,8 @@ export default function Page() {
             src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716303452/421ba436690245.57260cab17a3a_zjwjmt.gif"
             ></img>
         </div>
-        
+
       </div>
-            {openModal && 
-            (<TermsModal isOpen={openModal} onClose={() => setOpenModal(false)} />)
-            }
     </>
   );
 }
