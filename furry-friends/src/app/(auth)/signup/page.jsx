@@ -6,6 +6,7 @@ import TermsModal from "@/app/components/modals/Terms";
 
 export default function Page() {
   const [openModal, setOpenModal]= useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <>
@@ -98,7 +99,7 @@ export default function Page() {
                   Password
                 </label>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   id="password"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
                   placeholder="Your new password"
@@ -108,15 +109,15 @@ export default function Page() {
               <div className="flex items-start">
                 <div className="flex items-center h-5">
                   <input
-                    id="remember"
+                    id="showpassword"
                     type="checkbox"
-                    value=""
+                    checked={showPassword}
+                    onChange={(e) => setShowPassword(e.target.checked)}
                     className="w-4 h-4 border border-gray-300 rounded checked:bg-accent bg-gray-50 focus:ring-3 focus:ring-accentpaler dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                    required
                     />
                 </div>
                 <label
-                  htmlFor="remember"
+                  htmlFor="showpassword"
                   className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
                   Show password
