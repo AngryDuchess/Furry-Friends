@@ -27,10 +27,13 @@ module.exports = {
         secondary: 'var(--secondary)',
         secondarydeep: 'var(--secondary-60)',
         secondarypale: '#FFF59D',
+        secondarypalest: '#FFFBD8',
+        secondarydeepest: '#554E14',
         palepink: '#FDEBE7',
         bluebase: '#3789CC',
         greybase: '#ABABAB',
         palegreen: '#99D29C',
+        brown: '#D9AF69'
       },
     }
   },
