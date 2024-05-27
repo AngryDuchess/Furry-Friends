@@ -30,11 +30,12 @@ export default function Page() {
     }
     const user = { email };
     setTimeout(() => {
-      isAuthenticated(user);
+      // isAuthenticated(user);
+      localStorage.setItem("user",JSON.stringify(user))
       console.log(user);
       setLoading(false);
     }, 2000);
-    if (isAuthenticated()) router.push("/home");
+    if (isAuthenticated()) router.push("/");
   };
 
   return (
