@@ -12,12 +12,12 @@ export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [LoggedIn, setLoggedIn] = useState(false);
 
-  useEffect(() => {
-    setLoggedIn(isAuthenticated());
-  }, []);
+  // useEffect(() => {
+  //   setLoggedIn(isAuthenticated());
+  // }, []);
 
   const handleLogout = () => {
-    setLoggedIn(false);
+    localStorage.removeItem("user");
     router.push("/signin");
   };
 
@@ -29,10 +29,10 @@ export default function NavBar() {
             href="/home"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            <img src="/logo.svg"></img>
+            <img src="/logo.svg" alt="logo" />
           </Link>
           <div className="flex items-center gap-2 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            {LoggedIn ? (
+            {isAuthenticated() ? (
               <div className="bg-white rounded-full w-8 h-8 flex items-center justify-center">
                 <Dropdown
                   arrowIcon={false}
