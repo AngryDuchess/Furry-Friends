@@ -1,40 +1,77 @@
 "use client";
 import { HambergerMenu } from "iconsax-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
+import isAuthenticated from "@/lib/isAuthenticated";
+import { User } from "iconsax-react";
+import { Dropdown } from "flowbite-react";
 
 export default function NavBar() {
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [LoggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    setLoggedIn(isAuthenticated());
+  }, []);
+
+  const handleLogout = () => {
+    setLoggedIn(false);
+    router.push("/signin");
+  };
 
   return (
     <>
       <nav className="bg-gray-900 backdrop-filter backdrop-blur-md bg-opacity-50 border-b-[1px] border-gray-500 dark:bg-gray-900 sticky z-20 top-0 start-0 w-full">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-4 md:mx-16 p-4">
           <Link
-            href="/landingpage"
+            href="/home"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
             <img src="/logo.svg"></img>
           </Link>
-          <div className="flex gap-2 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <Link href="/signin">
-            <button
-              type="button"
-              //   style={{backgroundColor: 'var(--accent-100)'}}
-              className=" hidden md:block text-accent bg-white lg:px-8 py-4 font-medium rounded-full text-sm px-8 text-center hover:bg-red-100 "
-              >
-              Log in
-            </button>
-              </Link>
-            <Link href="/signup">
-            <button
-              type="button"
-              // style={{ backgroundColor: "var(--accent-100)" }}
-              className="text-white lg:px-8 py-4 font-medium rounded-full text-sm px-8 text-center bg-accent hover:bg-accentdeep"
-            >
-                Sign up
-            </button>
-              </Link>
+          <div className="flex items-center gap-2 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            {LoggedIn ? (
+              <div className="bg-white rounded-full w-8 h-8 flex items-center justify-center">
+                <Dropdown
+                  arrowIcon={false}
+                  inline
+                  label={<User size="24" color="#222222" variant="Bold" />}
+                >
+                  <Dropdown.Header>
+                    <span className="block text-sm">Teddy Mahama</span>
+                    <span className="block truncate text-sm font-medium">
+                      name@furryfriends.com
+                    </span>
+                  </Dropdown.Header>
+                  <Dropdown.Item>Settings</Dropdown.Item>
+                  <Dropdown.Divider />
+                  <Dropdown.Item onClick={handleLogout}>Sign out</Dropdown.Item>
+                </Dropdown>
+              </div>
+            ) : (
+              <>
+                <Link href="/signin">
+                  <button
+                    type="button"
+                    //   style={{backgroundColor: 'var(--accent-100)'}}
+                    className=" hidden md:block text-accent bg-white lg:px-8 py-4 font-medium rounded-full text-sm px-8 text-center hover:bg-red-100 "
+                  >
+                    Log in
+                  </button>
+                </Link>
+                <Link href="/signup">
+                  <button
+                    type="button"
+                    // style={{ backgroundColor: "var(--accent-100)" }}
+                    className="text-white lg:px-8 py-4 font-medium rounded-full text-sm px-8 text-center bg-accent hover:bg-accentdeep"
+                  >
+                    Sign up
+                  </button>
+                </Link>
+              </>
+            )}
             <button
               data-collapse-toggle="navbar-cta"
               type="button"
