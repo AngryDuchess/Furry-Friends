@@ -19,7 +19,7 @@ export default function PetCard() {
           />
         )}
       >
-        <p className="font-bold text-dark  dark:text-gray-400">
+        <p className="font-bold text-dark hover:text-accent  dark:text-gray-400">
           Beagle puppy
         </p>
       </Card>
