@@ -31,6 +31,7 @@ module.exports = {
         secondarydeepest: '#554E14',
         palepink: '#FDEBE7',
         bluebase: '#3789CC',
+        bluepalest: '#D9EDFD',
         greybase: '#ABABAB',
         palegreen: '#99D29C',
         brown: '#D9AF69'
