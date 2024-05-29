@@ -1,8 +1,21 @@
+"use client"
 import { merriweather } from "@/app/fonts";
-import { Modal } from "flowbite-react";
+import { Modal, Spinner } from "flowbite-react";
 import { CloseCircle } from "iconsax-react";
+import { useState } from "react";
 
 export default function AdoptionFormModal({ isOpen, onClose }) {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      onClose();
+    }, 2000);
+  };
+
   return (
     <>
       <div className="max-w-xl mx-auto">
@@ -13,7 +26,6 @@ export default function AdoptionFormModal({ isOpen, onClose }) {
           size="xl"
           position="top-center"
         >
-          {/* <Modal.Header>Furry Friends Terms and Conditions</Modal.Header> */}
           <div
             className={`${merriweather.className} overflow-y-auto text-lg py-4 px-6 text-dark flex flex-row justify-between`}
           >
@@ -35,7 +47,10 @@ export default function AdoptionFormModal({ isOpen, onClose }) {
               </a>
               . You can change this in your account settings.
             </div>
-            <form className="flex flex-col gap-4 m-4 text-dark font-semibold">
+            <form 
+              className="flex flex-col gap-4 m-4 text-dark font-semibold" 
+              onSubmit={handleSubmit}
+            >
               <div className="py-4 border-b border-gray-300">
                 <label
                   htmlFor="text"
@@ -100,21 +115,22 @@ export default function AdoptionFormModal({ isOpen, onClose }) {
                   htmlFor="text"
                   className="block mb-2 text-sm font-semibold text-dark dark:text-white"
                 >
-                  We’ll explain this pet’s medical and behavioral history. Please check any additional topics you’d like to discuss:
+                  We’ll explain this pet’s medical and behavioral history.
+                  Please check any additional topics you’d like to discuss:
                 </label>
                 <div className="flex flex-col gap-2 items-start">
                   <div className="flex">
                     <div className="flex items-center h-5">
                       <input
-                        id="yescheck"
+                        id="feeding"
                         value=""
-                        name="default-radio"
+                        name="feeding"
                         type="checkbox"
                         className="w-4 h-4 border border-gray-300 rounded checked:bg-accent bg-gray-50 focus:ring-3 focus:ring-accentpaler dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
                       />
                     </div>
                     <label
-                      htmlFor="yescheck"
+                      htmlFor="feeding"
                       className="ms-2 text-sm font-normal text-gray-900 dark:text-gray-300"
                     >
                       Feeding this pet
@@ -123,15 +139,15 @@ export default function AdoptionFormModal({ isOpen, onClose }) {
                   <div className="flex">
                     <div className="flex items-center h-5">
                       <input
-                        id="nocheck"
+                        id="proofing"
                         type="checkbox"
                         value=""
-                        name="default-radio"
+                        name="proofing"
                         className="w-4 h-4 border border-gray-300 rounded checked:bg-accent bg-gray-50 focus:ring-3 focus:ring-accentpaler dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
                       />
                     </div>
                     <label
-                      htmlFor="nocheck"
+                      htmlFor="proofing"
                       className="ms-2 text-sm font-normal text-gray-900 dark:text-gray-300"
                     >
                       Puppy/kitten-proofing your household
@@ -140,15 +156,15 @@ export default function AdoptionFormModal({ isOpen, onClose }) {
                   <div className="flex">
                     <div className="flex items-center h-5">
                       <input
-                        id="nocheck"
+                        id="trainer"
                         type="checkbox"
                         value=""
-                        name="default-radio"
+                        name="trainer"
                         className="w-4 h-4 border border-gray-300 rounded checked:bg-accent bg-gray-50 focus:ring-3 focus:ring-accentpaler dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
                       />
                     </div>
                     <label
-                      htmlFor="nocheck"
+                      htmlFor="trainer"
                       className="ms-2 text-sm font-normal text-gray-900 dark:text-gray-300"
                     >
                       Working with a trainer
@@ -157,15 +173,15 @@ export default function AdoptionFormModal({ isOpen, onClose }) {
                   <div className="flex">
                     <div className="flex items-center h-5">
                       <input
-                        id="nocheck"
+                        id="vet"
                         type="checkbox"
                         value=""
-                        name="default-radio"
+                        name="vet"
                         className="w-4 h-4 border border-gray-300 rounded checked:bg-accent bg-gray-50 focus:ring-3 focus:ring-accentpaler dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
                       />
                     </div>
                     <label
-                      htmlFor="nocheck"
+                      htmlFor="vet"
                       className="ms-2 text-sm font-normal text-gray-900 dark:text-gray-300"
                     >
                       Finding a vetinary
@@ -175,7 +191,7 @@ export default function AdoptionFormModal({ isOpen, onClose }) {
               </div>
               <div className="py-4 border-b border-gray-300">
                 <label
-                  htmlFor="text"
+                  htmlFor="source"
                   className="block mb-2 text-sm font-semibold text-dark dark:text-white"
                 >
                   How did you hear about Furry Friends?
@@ -184,15 +200,15 @@ export default function AdoptionFormModal({ isOpen, onClose }) {
                   <div className="flex">
                     <div className="flex items-center h-5">
                       <input
-                        id="yescheck"
+                        id="friend"
                         value=""
-                        name="default-radio"
+                        name="source"
                         type="checkbox"
                         className="w-4 h-4 border border-gray-300 rounded checked:bg-accent bg-gray-50 focus:ring-3 focus:ring-accentpaler dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
                       />
                     </div>
                     <label
-                      htmlFor="yescheck"
+                      htmlFor="friend"
                       className="ms-2 text-sm font-normal text-gray-900 dark:text-gray-300"
                     >
                       From a friend
@@ -201,15 +217,15 @@ export default function AdoptionFormModal({ isOpen, onClose }) {
                   <div className="flex">
                     <div className="flex items-center h-5">
                       <input
-                        id="nocheck"
+                        id="social-media"
                         type="checkbox"
                         value=""
-                        name="default-radio"
+                        name="source"
                         className="w-4 h-4 border border-gray-300 rounded checked:bg-accent bg-gray-50 focus:ring-3 focus:ring-accentpaler dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
                       />
                     </div>
                     <label
-                      htmlFor="nocheck"
+                      htmlFor="social-media"
                       className="ms-2 text-sm font-normal text-gray-900 dark:text-gray-300"
                     >
                       Social media AD
@@ -218,15 +234,15 @@ export default function AdoptionFormModal({ isOpen, onClose }) {
                   <div className="flex">
                     <div className="flex items-center h-5">
                       <input
-                        id="nocheck"
+                        id="google-search"
                         type="checkbox"
                         value=""
-                        name="default-radio"
+                        name="source"
                         className="w-4 h-4 border border-gray-300 rounded checked:bg-accent bg-gray-50 focus:ring-3 focus:ring-accentpaler dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
                       />
                     </div>
                     <label
-                      htmlFor="nocheck"
+                      htmlFor="google-search"
                       className="ms-2 text-sm font-normal text-gray-900 dark:text-gray-300"
                     >
                       Google search
@@ -236,18 +252,32 @@ export default function AdoptionFormModal({ isOpen, onClose }) {
               </div>
               <div className="py-4 border-b border-gray-300">
                 <label
-                  htmlFor="text"
+                  htmlFor="message"
                   className="block mb-2 text-sm font-semibold text-dark dark:text-white"
                 >
-                  Do you have any other information you’d like to share or questions you may have
+                  Do you have any other information you’d like to share or questions you may have?
                 </label>
-                <input
-                  type="textarea"
-                  id="firstname"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
-                  placeholder="Your address"
-                  required
+                <textarea
+                  id="message"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
+                  placeholder="Your text here..."
                 />
+              </div>
+              <div className="flex justify-end gap-3">
+                <button
+                  disabled={loading}
+                  className="flex justify-center text-accent mb-3 lg:px-8 py-2 font-medium rounded-full text-sm px-8 text-center border border-accent bg-white hover:bg-accentpalest"
+                  onClick={onClose}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="flex justify-center items-center text-white mb-3 lg:px-8 py-2 font-medium rounded-full text-sm px-8 text-center bg-accent hover:bg-accentdeep"
+                >
+                  {loading ? <Spinner size="sm" /> : "Submit"}
+                </button>
               </div>
             </form>
           </Modal.Body>
