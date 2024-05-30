@@ -1,8 +1,14 @@
+"use client"
 import { merriweather } from "@/app/fonts";
 import { ArrowRight2 } from "iconsax-react";
+import { useRouter } from "next/navigation";
 
 
 export default function Hero() {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push('/pets');
+  }
   return (
     <>
       <header
@@ -34,6 +40,7 @@ export default function Hero() {
               type="button"
               style={{ backgroundColor: "var(--accent-100)" }}
               className="text-white flex flex-row items-center gap-4  hover: font-medium rounded-full text-sm px-8 py-4 border-2 border-black shadow-[4px_4px_0px_0px_#000000] text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              onClick={handleClick}
             >
               Fetch your new friend{" "}
               <ArrowRight2 size="16" color="#ffffff" variant="Outline" />
