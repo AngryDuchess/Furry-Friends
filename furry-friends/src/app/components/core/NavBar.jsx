@@ -11,15 +11,16 @@ export default function NavBar() {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [LoggedIn, setLoggedIn] = useState(false);
-
-  // useEffect(() => {
-  //   setLoggedIn(isAuthenticated());
-  // }, []);
+  const [selectedTab, setSelectedTab] = useState(null);
 
   const handleLogout = () => {
     localStorage.removeItem("user");
     router.push("/signin");
   };
+
+  const handleSelect = (tabitem) => {
+    setSelectedTab(tabitem);
+  }
 
   return (
     <>
@@ -97,42 +98,48 @@ export default function NavBar() {
             <ul className="flex flex-col text-sm font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md: dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
                 <a
-                  href="#"
-                  className="block py-2 px-3 md:p-0 text-white rounded md:bg-transparent md:text-secondary md:dark:text-secondary"
-                  aria-current="page"
-                  style={{ color: "var(--secondary)" }}
+                  href="/"
+                  className={`${selectedTab ==='Home' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 text-white rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                  aria-current={`${selectedTab ==='Home' ? "page" : undefined}`}
+                  // aria-current="page"
+                  onClick={() => handleSelect("Home")}
                 >
                   Home
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
-                  className="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondarypale md:dark:hover:text-secondarypale dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  href="/pets"
+                  className={` ${selectedTab ==='Why adopt?' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 text-white rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                  aria-current={`${selectedTab ==='Why adopt?' ? "page" : undefined}`}
+                  onClick={() => handleSelect("Why adopt?")}
                 >
                   Why adopt?
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
-                  className="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondarypale md:dark:hover:text-secondarypale dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  href="/pets"
+                  className={` ${selectedTab ==='Paw-some tips' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 text-white rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                  onClick={() => handleSelect("Paw-some tips")}
                 >
                   Paw-some tips
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
-                  className="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondarypale md:dark:hover:text-secondarypale dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  href="/pets"
+                  className={` ${selectedTab ==='Our pets' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 text-white rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                  onClick={() => handleSelect("Our pets")}
                 >
                   Our pets
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
-                  className="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondarypale md:dark:hover:text-secondarypale dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  href="/donate"
+                  className={` ${selectedTab ==='Be a pet hero' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 text-white rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                  onClick={() => handleSelect("Be a pet hero")}
                 >
                   Be a pet hero
                 </a>
