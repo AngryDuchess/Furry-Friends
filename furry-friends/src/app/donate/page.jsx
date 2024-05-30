@@ -3,9 +3,10 @@ import { merriweather } from "@/app/fonts";
 import { Button, Spinner } from "flowbite-react";
 import { useState } from "react";
 import DonationCompleteModal from "../components/modals/DonationComplete";
+import withNavBar from "../components/HOC/withNavBar";
 
 
-export default function Donate() {
+function Donate() {
   const [selectedButton, setSelectedButton] = useState(null);
   const [selectedAmount, setSelectedAmount] = useState(null);
   const [loading, setLoading ] = useState(false);
@@ -176,3 +177,5 @@ export default function Donate() {
     </>
   );
 }
+
+export default withNavBar(Donate);
