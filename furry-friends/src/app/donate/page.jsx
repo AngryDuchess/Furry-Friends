@@ -2,11 +2,14 @@
 import { merriweather } from "@/app/fonts";
 import { Button, Spinner } from "flowbite-react";
 import { useState } from "react";
+import DonationCompleteModal from "../components/modals/DonationComplete";
+
 
 export default function Donate() {
   const [selectedButton, setSelectedButton] = useState(null);
   const [selectedAmount, setSelectedAmount] = useState(null);
   const [loading, setLoading ] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const handleSelect = (button) => {
     setSelectedButton(button);
@@ -20,6 +23,8 @@ export default function Donate() {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
+      setOpenModal(true);
+
     }, 2000);
   }
 
@@ -138,7 +143,7 @@ export default function Donate() {
                   Make me anonymous
                 </label>
               </div>
-              <div className=" border-b border-gray-300">
+              <div>
                 <label
                   htmlFor="message"
                   className="block mb-2 text-sm font-semibold text-dark dark:text-white"
@@ -163,6 +168,11 @@ export default function Donate() {
           </form>
         </div>
       </div>
+      {openModal && 
+        (<DonationCompleteModal 
+          isOpen={openModal} 
+          onClose={() => setOpenModal(false)} />)
+      }
     </>
   );
 }
