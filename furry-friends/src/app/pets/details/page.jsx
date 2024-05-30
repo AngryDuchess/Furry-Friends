@@ -4,8 +4,9 @@ import { ArrowRight2 } from "iconsax-react";
 import AdoptionFormModal from "@/app/components/modals/AdoptionForm";
 import { useState } from "react";
 import BookingConfirmedModal from "@/app/components/modals/BookingConfirmed";
+import withNavBar from "@/app/components/HOC/withNavBar";
 
-export default function Page() {
+function Page() {
   const [openModal, setOpenModal] = useState(false);
   const [successModalOpen, setSuccessModalOpen] = useState(false);
 
@@ -80,3 +81,5 @@ export default function Page() {
     </>
   );
 }
+
+export default withNavBar(Page);
