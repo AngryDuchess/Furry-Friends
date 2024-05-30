@@ -1,11 +1,11 @@
 import { inter } from "./fonts";
 import "./globals.css";
-import NavBar from "./components/core/NavBar";
+// import NavBar from "./components/core/NavBar";
 
 
 export const metadata = {
   title: "Furry Friends",
-  description: "mwah!",
+  description: "An online pet shop",
 };
 
 export default function RootLayout({ children }) {
