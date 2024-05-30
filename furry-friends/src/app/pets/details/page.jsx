@@ -1,20 +1,17 @@
 "use client"
 import { merriweather } from "@/app/fonts";
-import { Weight, Calendar1, Man, Location, ArrowRight2 } from "iconsax-react";
+import { ArrowRight2 } from "iconsax-react";
 import AdoptionFormModal from "@/app/components/modals/AdoptionForm";
 import { useState } from "react";
+import BookingConfirmedModal from "@/app/components/modals/BookingConfirmed";
 
 export default function Page() {
   const [openModal, setOpenModal] = useState(false);
-  // const [openModal, setOpenModal] = useState(false);
+  const [successModalOpen, setSuccessModalOpen] = useState(false);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   setTimeout(() => {
-  //     setOpenModal(false)
-  //   }, 2000)
-  // };
+  const handleFormSubmit = () => {
+    setSuccessModalOpen(true);
+  };
 
   return (
     <>
@@ -68,9 +65,15 @@ export default function Page() {
           </div>
         </div>
       </section>
-      {openModal && (
-        <AdoptionFormModal isOpen={openModal} onClose={() => setOpenModal(false)} />
-      )}
+      <AdoptionFormModal 
+        isOpen={openModal} 
+        onClose={() => setOpenModal(false)} 
+        onFormSubmit={handleFormSubmit} 
+      />
+      <BookingConfirmedModal
+      isOpen={successModalOpen} 
+      onClose={() => setSuccessModalOpen(false)} 
+       />
     </>
   );
 }
