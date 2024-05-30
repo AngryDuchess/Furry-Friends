@@ -2,8 +2,9 @@
 import PetCard from "../components/PetCard";
 import { Dropdown } from "flowbite-react";
 import { SearchNormal1, ArrowDown2, Link } from "iconsax-react";
+import withNavBar from "../components/HOC/withNavBar";
 
-export default function Page() {
+function Page() {
   return (
     <>
       {/* <NavBar /> */}
@@ -89,7 +90,7 @@ export default function Page() {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <a href="#" >
+            <a href="/pets/details" >
               <PetCard />
             </a>
             <PetCard />
@@ -101,3 +102,5 @@ export default function Page() {
     </>
   );
 }
+
+export default withNavBar(Page);
