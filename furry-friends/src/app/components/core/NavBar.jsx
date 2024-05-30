@@ -1,6 +1,6 @@
 "use client";
 import { HambergerMenu } from "iconsax-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import isAuthenticated from "@/lib/isAuthenticated";
@@ -21,6 +21,11 @@ export default function NavBar() {
   const handleSelect = (tabitem) => {
     setSelectedTab(tabitem);
   }
+
+  const getLinkClassName = (path) => {
+    return router.pathname === path ? 'text-secondary bg-accent lg:bg-none' : 'text-white';
+  };
+
 
   return (
     <>
@@ -99,9 +104,10 @@ export default function NavBar() {
               <li>
                 <a
                   href="/"
-                  className={`${selectedTab ==='Home' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 text-white rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                  className={`${selectedTab ==='Home' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                //  className={`${getLinkClassName('/')} block py-2 px-3 md:p-0 rounded md:bg-transparent md:dark:text-secondary}`}
+                //  aria-current={router.pathname === '/' ? "page" : undefined}
                   aria-current={`${selectedTab ==='Home' ? "page" : undefined}`}
-                  // aria-current="page"
                   onClick={() => handleSelect("Home")}
                 >
                   Home
@@ -110,7 +116,7 @@ export default function NavBar() {
               <li>
                 <a
                   href="/pets"
-                  className={` ${selectedTab ==='Why adopt?' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 text-white rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                  className={` ${selectedTab ==='Why adopt?' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0  rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
                   aria-current={`${selectedTab ==='Why adopt?' ? "page" : undefined}`}
                   onClick={() => handleSelect("Why adopt?")}
                 >
@@ -120,7 +126,8 @@ export default function NavBar() {
               <li>
                 <a
                   href="/pets"
-                  className={` ${selectedTab ==='Paw-some tips' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 text-white rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                  className={` ${selectedTab ==='Paw-some tips' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                  aria-current={`${selectedTab ==='Paw-some tips' ? "page" : undefined}`}
                   onClick={() => handleSelect("Paw-some tips")}
                 >
                   Paw-some tips
@@ -129,8 +136,10 @@ export default function NavBar() {
               <li>
                 <a
                   href="/pets"
-                  className={` ${selectedTab ==='Our pets' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 text-white rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                  className={` ${selectedTab ==='Our pets' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0  rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                  aria-current={`${selectedTab ==="Our pets" ? "page" : undefined}`}
                   onClick={() => handleSelect("Our pets")}
+
                 >
                   Our pets
                 </a>
@@ -138,7 +147,11 @@ export default function NavBar() {
               <li>
                 <a
                   href="/donate"
-                  className={` ${selectedTab ==='Be a pet hero' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 text-white rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                  className={` ${selectedTab ==='Be a pet hero' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                //  className={`${getLinkClassName('/donate')} block py-2 px-3 md:p-0 rounded md:bg-transparent md:dark:text-secondary}`}
+                //  aria-current={router.pathname === '/donate' ? "page" : undefined}
+                aria-current={`${selectedTab ==="Be a pet hero" ? "page" : undefined}`}
+                  
                   onClick={() => handleSelect("Be a pet hero")}
                 >
                   Be a pet hero
