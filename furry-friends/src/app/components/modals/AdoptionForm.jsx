@@ -4,7 +4,7 @@ import { Modal, Spinner } from "flowbite-react";
 import { CloseCircle } from "iconsax-react";
 import { useState } from "react";
 
-export default function AdoptionFormModal({ isOpen, onClose }) {
+export default function AdoptionFormModal({ isOpen, onClose, onFormSubmit }) {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
@@ -13,6 +13,7 @@ export default function AdoptionFormModal({ isOpen, onClose }) {
     setTimeout(() => {
       setLoading(false);
       onClose();
+      onFormSubmit();
     }, 2000);
   };
 
@@ -61,11 +62,12 @@ export default function AdoptionFormModal({ isOpen, onClose }) {
                 <input
                   type="text"
                   id="firstname"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full lg:w-3/4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
                   placeholder="Your address"
                   required
                 />
               </div>
+              
               <div className="py-4 border-b border-gray-300">
                 <label
                   htmlFor="text"
@@ -259,7 +261,7 @@ export default function AdoptionFormModal({ isOpen, onClose }) {
                 </label>
                 <textarea
                   id="message"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-secondary focus:border-secondarydeep block w-full lg:w-3/4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
                   placeholder="Your text here..."
                 />
               </div>
