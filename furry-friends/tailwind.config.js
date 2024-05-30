@@ -34,7 +34,7 @@ module.exports = {
         bluepalest: '#D9EDFD',
         greybase: '#ABABAB',
         palegreen: '#99D29C',
-        brown: '#D9AF69'
+        brown: '#D9AF69',
       },
     }
   },
