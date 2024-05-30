@@ -12,6 +12,7 @@ export default function BookingConfirmedModal({ isOpen, onClose }) {
           onClose={onClose}
           size="xl"
           position="top-center"
+          className="z-50"
         >
           <div
             className={`${merriweather.className} overflow-y-auto  py-4 px-6 text-dark flex justify-end`}

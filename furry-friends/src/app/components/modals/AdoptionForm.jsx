@@ -26,6 +26,7 @@ export default function AdoptionFormModal({ isOpen, onClose, onFormSubmit }) {
           onClose={onClose}
           size="xl"
           position="top-center"
+          className="z-50"
         >
           <div
             className={`${merriweather.className} overflow-y-auto text-lg py-4 px-6 text-dark flex flex-row justify-between`}
