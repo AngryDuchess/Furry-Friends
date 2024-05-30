@@ -9,9 +9,10 @@ import Footer from "./components/core/Footer";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import isAuthenticated from "@/lib/isAuthenticated";
+import withNavBar from "./components/HOC/withNavBar";
 
 
-export default function Home() {
+function Home() {
   const router = useRouter();
   useEffect (() => {
     if (!isAuthenticated()) {
@@ -21,7 +22,7 @@ export default function Home() {
 
   return (
     <>
-        <NavBar />
+        {/* <NavBar /> */}
         <Hero />
         <HowItWorks />
         <WhyAdopt />
@@ -31,3 +32,5 @@ export default function Home() {
     </>
   )
 }
+
+export default withNavBar(Home);
