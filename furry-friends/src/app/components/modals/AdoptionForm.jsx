@@ -118,8 +118,8 @@ export default function AdoptionFormModal({ isOpen, onClose, onFormSubmit }) {
                   htmlFor="text"
                   className="block mb-2 text-sm font-semibold text-dark dark:text-white"
                 >
-                  We’ll explain this pet’s medical and behavioral history.
-                  Please check any additional topics you’d like to discuss:
+                  We&apos;ll explain this pet&apos;s medical and behavioral history.
+                  Please check any additional topics you&apos;d like to discuss:
                 </label>
                 <div className="flex flex-col gap-2 items-start">
                   <div className="flex">
@@ -258,7 +258,7 @@ export default function AdoptionFormModal({ isOpen, onClose, onFormSubmit }) {
                   htmlFor="message"
                   className="block mb-2 text-sm font-semibold text-dark dark:text-white"
                 >
-                  Do you have any other information you’d like to share or questions you may have?
+                  Do you have any other information you&apos;d like to share or questions you may have?
                 </label>
                 <textarea
                   id="message"
