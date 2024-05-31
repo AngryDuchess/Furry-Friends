@@ -5,11 +5,10 @@ import { useState } from "react";
 import DonationCompleteModal from "../components/modals/DonationComplete";
 import withNavBar from "../components/HOC/withNavBar";
 
-
 function Donate() {
   const [selectedButton, setSelectedButton] = useState(null);
   const [selectedAmount, setSelectedAmount] = useState(null);
-  const [loading, setLoading ] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 
   const handleSelect = (button) => {
@@ -21,30 +20,27 @@ function Donate() {
   };
 
   const handleSubmit = (e) => {
-    setLoading(true)
+    setLoading(true);
     setTimeout(() => {
-      setLoading(false)
+      setLoading(false);
       setOpenModal(true);
-
     }, 2000);
-  }
+  };
 
   return (
     <>
-      <div className="flex flex-col my-16 mx-4 lg:flex-row lg:m-16">
-        <div>
+      <div className="flex flex-col gap-12 my-16 mx-4 lg:flex-row lg:m-16">
+        <div className="flex flex-col gap-3 text-dark">
           <p className="text-accent font-bold text-sm">Be a pet Hero</p>
           <p
-            className={`${merriweather.className} leading-10 text-dark text-3xl`}
+            className={`${merriweather.className} leading-10 text-3xl`}
           >
             Become a Champion for
             <br /> <span className="text-accent">Our Furry Friends!</span>
           </p>
           <p>
-            Inspired by our lovely Boer Boel, Teddy, we created Furry Friends
-            with one goal in mind: to make pet parenting as joyful and
-            hassle-free as possible. Here at Furry Friends, we know pets aren’t
-            just animals—they’re family members with fur, feathers, and fins!
+            By becoming a Pet Hero, you can make a significant difference in the
+            lives of animals in need.
           </p>
         </div>
         <div className="flex flex-col gap-4">
@@ -157,23 +153,28 @@ function Donate() {
                   placeholder="Your text here..."
                 />
               </div>
-            <button
+              <button
                 type="submit"
                 disabled={loading}
                 className="flex justify-center text-white mb-3 lg:px-8 py-4 mt-12 font-medium rounded-full text-sm px-8 text-center bg-accent hover:bg-accentdeep w-full"
                 onClick={handleSubmit}
               >
-                {loading ? <Spinner /> : `Donate ${selectedAmount ? selectedAmount : ''}`}
+                {loading ? (
+                  <Spinner />
+                ) : (
+                  `Donate ${selectedAmount ? selectedAmount : ""}`
+                )}
               </button>
             </div>
           </form>
         </div>
       </div>
-      {openModal && 
-        (<DonationCompleteModal 
-          isOpen={openModal} 
-          onClose={() => setOpenModal(false)} />)
-      }
+      {openModal && (
+        <DonationCompleteModal
+          isOpen={openModal}
+          onClose={() => setOpenModal(false)}
+        />
+      )}
     </>
   );
 }
