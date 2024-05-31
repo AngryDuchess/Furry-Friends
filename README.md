@@ -25,14 +25,8 @@ review link - https://intranet.alxswe.com/corrections/32426672/correct
 
 #### Technologies Used
 
--   Frontend: React.js, HTML, CSS, JavaScript
--   Backend: Node.js, Express.js
--   Database: MongoDB
--   Authentication: JWT, OAuth
--   Hosting: AWS, Heroku
+-   Frontend: NextJs, Tailwind CSS, FlowBite library
 -   Version Control: Git, GitHub
--   Payment Gateway: Stripe, PayPal
--   Testing: Jest, Mocha
 
 #### Getting Started
 
