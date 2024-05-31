@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <>
       <header
-        className="px-4 hero-pattern w-full hero-bg text-dark"
+        className=" px-4 hero-pattern w-full hero-bg text-dark"
         style={{
           backgroundColor: "#FFCDD2",
           backgroundImage:
