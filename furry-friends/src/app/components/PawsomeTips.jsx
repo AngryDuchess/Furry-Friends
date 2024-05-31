@@ -1,7 +1,9 @@
 import { merriweather } from "../fonts";
 import { ArrowRight2 } from "iconsax-react";
+import { useRouter } from "next/navigation";
 
 export default function PawsomeTips() {
+  const router = useRouter();
   return (
     <section className="my-12 mx-4 md:mx-16">
       <div
@@ -37,6 +39,7 @@ export default function PawsomeTips() {
           <button
             type="button"
             className="text-white bg-accent flex flex-row items-center justify-between gap-4 font-medium rounded-full text-sm px-8 py-4 border-2 border-black shadow-[4px_4px_0px_0px_#000000] text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          onClick={() => router.push('/tips')}
           >
             Sniff out more{" "}
             <ArrowRight2 size="16" color="#ffffff" variant="Outline" />
