@@ -30,7 +30,7 @@ export default function NavBar() {
   return (
     <>
       <nav className="bg-gray-900 backdrop-filter backdrop-blur-md bg-opacity-50 border-b-[1px] border-gray-500 dark:bg-gray-900 sticky z-20 top-0 start-0 w-full">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-4 md:mx-16 p-4">
+        <div className="flex flex-wrap items-center justify-between mx-4 md:mx-16 p-4">
           <Link
             href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
