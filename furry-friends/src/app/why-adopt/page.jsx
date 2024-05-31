@@ -5,7 +5,7 @@ import withNavBar from "../components/HOC/withNavBar";
 function Page() {
   return (
     <>
-      <section className=" mx-4 mt-4 lg:mx-16 text-dark flex flex-col gap-5 lg:gap-8">
+      <section className=" mx-4 mt-16 lg:mx-16 text-dark flex flex-col gap-5 lg:gap-8">
         <div className="flex flex-col gap-3 lg:gap-4">
           <p className="text-accent font-bold text-sm lg:text-lg">Why Adopt?</p>
           <p className={`${merriweather.className} leading-10 text-3xl lg:text-5xl`}>
