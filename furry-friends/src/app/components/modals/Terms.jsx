@@ -7,7 +7,6 @@ export default function TermsModal({ isOpen, onClose }) {
     <>
       <div className="max-w-xl mx-auto">
         <Modal className="z-50" dismissible show={isOpen} onClose={onClose} size="xl" position="top-center">
-          {/* <Modal.Header>Furry Friends Terms and Conditions</Modal.Header> */}
           <div
             className={`${merriweather.className} overflow-y-auto text-lg py-4 px-6 text-dark flex flex-row justify-between`}
           >
