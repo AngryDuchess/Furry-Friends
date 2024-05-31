@@ -1,7 +1,10 @@
+"use client"
 import { merriweather } from "@/app/fonts";
 import { ArrowRight2 } from "iconsax-react";
+import { useRouter } from "next/navigation";
 
 export default function WhyAdopt() {
+  const router = useRouter();
   return (
     <>
       <section
@@ -22,13 +25,13 @@ export default function WhyAdopt() {
           <p>
             Inspired by our lovely Boer Boel, Teddy, we created Furry Friends
             with one goal in mind: to make pet parenting as joyful and
-            hassle-free as possible. Here at Furry Friends, we know pets aren’t
-            just animals—they’re family members with fur, feathers, and fins!
+            hassle-free as possible. Here at Furry Friends, we know pets aren&apos;t
+            just animals—they&apos;re family members with fur, feathers, and fins!
           </p>
           <button
               type="button"
-            //   style={{ backgroundColor: "var(--accent-100)" }}
               className="text-white bg-accent flex flex-row items-center justify-between gap-4 hover: font-medium rounded-full text-sm px-8 py-4 border-2 border-black shadow-[4px_4px_0px_0px_#000000] text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            onClick={() => router.push('/why-adopt')}
             >
               Sniff out more{" "}
               <ArrowRight2 size="16" color="#ffffff" variant="Outline" />
