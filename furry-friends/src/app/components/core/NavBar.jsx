@@ -32,7 +32,7 @@ export default function NavBar() {
       <nav className="bg-gray-900 backdrop-filter backdrop-blur-md bg-opacity-50 border-b-[1px] border-gray-500 dark:bg-gray-900 sticky z-20 top-0 start-0 w-full">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-4 md:mx-16 p-4">
           <Link
-            href="/home"
+            href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
             <img src="/logo.svg" alt="logo" />
@@ -115,7 +115,7 @@ export default function NavBar() {
               </li>
               <li>
                 <a
-                  href="/pets"
+                  href="/why-adopt"
                   className={` ${selectedTab ==='Why adopt?' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0  rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
                   aria-current={`${selectedTab ==='Why adopt?' ? "page" : undefined}`}
                   onClick={() => handleSelect("Why adopt?")}
