@@ -125,7 +125,7 @@ export default function NavBar() {
               </li>
               <li>
                 <a
-                  href="/pets"
+                  href="/tips"
                   className={` ${selectedTab ==='Paw-some tips' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
                   aria-current={`${selectedTab ==='Paw-some tips' ? "page" : undefined}`}
                   onClick={() => handleSelect("Paw-some tips")}
