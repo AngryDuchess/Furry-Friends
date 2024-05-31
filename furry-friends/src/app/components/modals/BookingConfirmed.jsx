@@ -34,7 +34,7 @@ export default function BookingConfirmedModal({ isOpen, onClose }) {
             <div className="text-dark text-sm space-y-2">
                 <p className="font-semibold">What happens next?</p>
                 <ul className="text-sm mx-3 list-disc">
-                    <li>Check Your Email: We’ve sent a confirmation to your email with the details of your scheduled call.</li><br />
+                    <li>Check Your Email: We&apos;ve sent a confirmation to your email with the details of your scheduled call.</li><br />
                     <li>Be Ready: Make sure to be available at the chosen time, so we can discuss everything you need to know about your new pet.</li>
                 </ul>
             </div>
