@@ -1,16 +1,38 @@
 "use client";
 import PetCard from "../components/PetCard";
 import { Dropdown } from "flowbite-react";
-import { SearchNormal1, ArrowDown2, Link } from "iconsax-react";
+import { SearchNormal1, ArrowDown2 } from "iconsax-react";
+import { fetchCats, getImage } from "@/lib/api";
+import { useEffect, useState } from 'react';
 import withNavBar from "../components/HOC/withNavBar";
 
 function Page() {
+  const [data, setData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const catData = await fetchCats();
+      const catDataWithImages = await Promise.all(catData.map(async (cat) => {
+        const image = await getImage(cat.reference_image_id);
+        return { ...cat, image };
+      }));
+      setData(catDataWithImages);
+    };
+
+    fetchData();
+  }, []);
+
+  // Filter dogs based on search query
+  const filteredData = data.filter(dog =>
+    dog.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <>
-      {/* <NavBar /> */}
       <section className="mx-4 lg:mx-16 my-16 flex flex-col gap-8 ">
         <div className="flex text-dark gap-4 flex-col justify-between lg:flex-row-reverse ">
-          <form className="flex items-center gap-1">
+          <form className="flex items-center gap-1" onSubmit={(e) => e.preventDefault()}>
             <label htmlFor="simple-search" className="sr-only">
               Search
             </label>
@@ -23,7 +45,8 @@ function Page() {
                 id="simple-search"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-secondary focus:border-secondarydeep block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
                 placeholder="Search..."
-                required
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
             <button
@@ -90,13 +113,11 @@ function Page() {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <a href="/pets/details" >
-              <PetCard />
-            </a>
-            <PetCard />
-            <PetCard />
-            <PetCard />
-            <PetCard />
+          {filteredData.map((dog, index) => (
+            <div key={index}>
+              <PetCard image={dog.image} name={dog.name} breed="Mixed" id={dog.reference_image_id} />
+            </div>
+          ))}
         </div>
       </section>
     </>
