@@ -2,7 +2,7 @@
 export default function Footer() {
     const current_year = new Date();
   return (
-    <footer className="text-dark text-sm p-4 border-t border-gray-400 flex flex-col lg:justify-between lg:flex-row lg:px-16 gap-8">
+    <footer className="text-dark text-sm p-4 border-t border-gray-400 flex flex-col lg:justify-between lg:items-baseline lg:flex-row lg:px-16 gap-8">
       <div className=" flex flex-col gap-2 items-start">
         <img src="/logo.svg" />
         <p className="font-medium">
@@ -16,8 +16,8 @@ export default function Footer() {
       <div>
         <ul className="flex flex-col gap-3 lg:flex-row lg:gap-8">
             <li><a className="underline lg:no-underline lg:hover:underline" href="https://www.linkedin.com/in/hamidamahama/">LINKEDIN</a></li>
-            <li><a className="underline lg:no-underline lg:hover:underline" href="https://www.linkedin.com/in/hamidamahama/">GITHUB</a></li>
-            <li><a className="underline lg:no-underline lg:hover:underline" href="https://www.linkedin.com/in/hamidamahama/">TWITTER</a></li>
+            <li><a className="underline lg:no-underline lg:hover:underline" href="https://www.github.com/AngryDuchess/">GITHUB</a></li>
+            <li><a className="underline lg:no-underline lg:hover:underline" href="https://x.com/hamida_mahama/">TWITTER</a></li>
         </ul>
       </div>
     </footer>
