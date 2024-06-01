@@ -62,9 +62,10 @@ export default function AdoptionFormModal({ isOpen, onClose, onFormSubmit }) {
                 </label>
                 <input
                   type="text"
-                  id="firstname"
+                  name="address"
+                  id="address"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full lg:w-3/4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
-                  placeholder="Your address"
+                  placeholder="Enter your address"
                   required
                 />
               </div>
