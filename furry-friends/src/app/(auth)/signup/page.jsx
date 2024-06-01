@@ -3,10 +3,50 @@ import { merriweather } from "@/app/fonts";
 import Link from "next/link";
 import { useState } from "react";
 import TermsModal from "@/app/components/modals/Terms";
+import isAuthenticated from "@/lib/isAuthenticated";
+import { useRouter } from "next/navigation";
+import { Spinner } from "flowbite-react";
 
 export default function Page() {
+  const router = useRouter();
   const [openModal, setOpenModal]= useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [firstname,setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleEmailChange = (e) => setEmail(e.target.value);
+
+  const handlePasswordChange = (e) => setPassword(e.target.value);
+
+  const handleFirstChange = (e) => setFirstname(e.target.value);
+  
+  const handleLastChange = (e) => setLastname(e.target.value);
+
+  const handlePhoneChange = (e) => setPhone(e.target.value);
+
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    if (email === "" || firstname === "" || lastname === "" || password === "" || password.length < 8 ) {
+      setLoading(false);
+      setError(true);
+      return;
+    }
+    const user = {email, firstname, lastname, phone };
+    setTimeout(() => {
+      localStorage.setItem("user", JSON.stringify(user))
+      console.log(user);
+      setLoading(false);
+    }, 2000)
+    if (isAuthenticated()) 
+      router.push('/');
+  }
 
   return (
     <>
@@ -29,7 +69,18 @@ export default function Page() {
             You are one step closer to finding your new best friend 💞
           </p>
             </div>
-          <form className="max-w-sm flex flex-col gap-5">
+          <form className="max-w-sm flex flex-col gap-5" onSubmit={handleSignUp}>
+          {error && (
+              <Alert
+                color={"info"}
+                className="w-full text-red-500 mb-4 border border-red-200 rounded-lg p-2 py-2 bg-red-100"
+              >
+                <div className="flex flex-row gap-2 items-center">
+                  <InfoCircle size="20" variant="Bold" />
+                  <p>All fields are required</p>
+                </div>
+              </Alert>
+            )}
             <div>
               <label
                 htmlFor="text"
@@ -43,6 +94,7 @@ export default function Page() {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
                 placeholder="Your first name eg: Teddy"
                 required
+                onChange={handleFirstChange}
               />
             </div>
             <div>
@@ -58,6 +110,7 @@ export default function Page() {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
                 placeholder="Your last name eg: Mahama"
                 required
+                onChange={handleLastChange}
               />
             </div>
             <div>
@@ -73,6 +126,7 @@ export default function Page() {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
                 placeholder="teddy@furryfriends.com"
                 required
+                onChange={handleEmailChange}
               />
             </div>
             <div>
@@ -87,7 +141,7 @@ export default function Page() {
                 id="phone"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
                 placeholder="Your phone number"
-                required
+                onChange={handlePhoneChange}
               />
             </div>
             <div className="gap-2">
@@ -104,6 +158,7 @@ export default function Page() {
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-secondary focus:border-secondarydeep block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondarydeep"
                   placeholder="Your new password"
                   required
+                  onChange={handlePasswordChange}
                 />
               </div>
               <div className="flex items-start">
@@ -139,7 +194,7 @@ export default function Page() {
                 type="submit"
                 className="text-white lg:px-8 py-4 mt-12 font-medium rounded-full text-sm px-8 text-center bg-accent hover:bg-accentdeep w-full"
                 >
-                Let's go!
+                {loading ? <Spinner /> : "Let's go!"}
               </button>
               <p className="text-light text-sm font-semibold">
                 Already have an account?{" "}
