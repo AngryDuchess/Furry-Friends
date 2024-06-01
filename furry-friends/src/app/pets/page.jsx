@@ -23,9 +23,8 @@ function Page() {
     fetchData();
   }, []);
 
-  // Filter dogs based on search query
-  const filteredData = data.filter(dog =>
-    dog.name.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredData = data.filter(cat =>
+    cat.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
