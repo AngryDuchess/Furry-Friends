@@ -48,7 +48,7 @@ function Donate() {
             <p className="font-bold text-xl">Choose an amount to give</p>
             <p className="text-sm">
               Every donation helps us provide food, medical care, and shelter
-              for pets in need. Whether it’s a one-time gift or a recurring
+              for pets in need. Whether it&apos;s a one-time gift or a recurring
               donation, your generosity goes a long way.
             </p>
           </div>
