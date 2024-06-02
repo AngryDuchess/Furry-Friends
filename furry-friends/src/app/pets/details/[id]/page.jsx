@@ -5,11 +5,14 @@ import AdoptionFormModal from "@/app/components/modals/AdoptionForm";
 import { useState, useEffect } from "react";
 import BookingConfirmedModal from "@/app/components/modals/BookingConfirmed";
 import withNavBar from "@/app/components/HOC/withNavBar";
-import { getPetDetails } from "@/lib/api";
+import { getCatDetails, getDogDetails } from "@/lib/api";
 import Image from "next/image";
+import isAuthenticated from "@/lib/isAuthenticated";
+import { useRouter } from "next/navigation";
 
 function Page({ params }) {
   const [openModal, setOpenModal] = useState(false);
+  const router = useRouter();
   const [data, setData] = useState();
   const [successModalOpen, setSuccessModalOpen] = useState(false);
 
@@ -17,13 +20,19 @@ function Page({ params }) {
     setSuccessModalOpen(true);
   };
 
+  const handleModalOpen = () => {
+    if(!isAuthenticated()) {
+      return router.push("/signin");
+    }
+    setOpenModal(true);
+  }
+
   useEffect(() => {
-    getPetDetails(params.id).then((data) => {
+    getCatDetails(params.id).then((data) => {
       setData(data);
     });
   }, []);
 
-  console.log(data);
   return (
     <>
       <section className="mx-4 lg:mx-16 my-16 flex flex-col lg:justify-between lg:flex-row gap-4 lg:gap-8 text-dark font-semibold">
@@ -74,7 +83,7 @@ function Page({ params }) {
             <button
               type="button"
               className="text-white bg-bluebase flex flex-row items-center justify-between gap-4 font-medium rounded-full text-sm px-8 py-4 border-2 border-black shadow-[4px_4px_0px_0px_#000000] text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              onClick={() => setOpenModal(true)}
+              onClick={handleModalOpen}
             >
               I'm the one!{" "}
               <ArrowRight2 size="16" color="#ffffff" variant="Outline" />
