@@ -31,10 +31,12 @@ export default function Page() {
     const user = { email };
     setTimeout(() => {
       localStorage.setItem("user",JSON.stringify(user))
+      router.push('/');
+
       console.log(user);
       setLoading(false);
     }, 2000);
-    if (isAuthenticated()) router.push("/");
+    // if (isAuthenticated()) router.push("/");
   };
 
   return (
