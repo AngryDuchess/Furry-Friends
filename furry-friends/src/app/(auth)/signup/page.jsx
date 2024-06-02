@@ -41,11 +41,10 @@ export default function Page() {
     const user = {email, firstname, lastname, phone };
     setTimeout(() => {
       localStorage.setItem("user", JSON.stringify(user))
+      router.push('/');
       console.log(user);
       setLoading(false);
     }, 2000)
-    if (isAuthenticated()) 
-      router.push('/');
   }
 
   return (
@@ -211,7 +210,6 @@ export default function Page() {
             src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716303452/421ba436690245.57260cab17a3a_zjwjmt.gif"
             ></img>
         </div>
-
       </div>
     </>
   );
