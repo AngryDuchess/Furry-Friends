@@ -1,7 +1,7 @@
 "use client";
 import { HambergerMenu } from "iconsax-react";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import isAuthenticated from "@/lib/isAuthenticated";
 import { User } from "iconsax-react";
@@ -9,10 +9,15 @@ import { Dropdown } from "flowbite-react";
 
 export default function NavBar() {
   const router = useRouter();
+  const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [LoggedIn, setLoggedIn] = useState(false);
   const [selectedTab, setSelectedTab] = useState(null);
-
+  const user = localStorage.getItem("user");
+  const userObj = JSON.parse(user);
+  const fullname = userObj.firstname + " " + userObj.lastname
+  console.log(userObj);
+  
   const handleLogout = () => {
     localStorage.removeItem("user");
     router.push("/signin");
@@ -23,9 +28,8 @@ export default function NavBar() {
   }
 
   const getLinkClassName = (path) => {
-    return router.pathname === path ? 'text-secondary bg-accent lg:bg-none' : 'text-white';
+    return pathname === path ? 'text-secondary bg-accent lg:bg-none' : 'text-white';
   };
-
 
   return (
     <>
@@ -46,9 +50,9 @@ export default function NavBar() {
                   label={<User size="24" color="#222222" variant="Bold" />}
                 >
                   <Dropdown.Header>
-                    <span className="block text-sm">Teddy Mahama</span>
+                  <span className="block text-sm">{(fullname && fullname !== "undefined undefined") ? fullname : userObj.email }</span>
                     <span className="block truncate text-sm font-medium">
-                      name@furryfriends.com
+                     {userObj.email}
                     </span>
                   </Dropdown.Header>
                   <Dropdown.Item>Settings</Dropdown.Item>
@@ -104,11 +108,11 @@ export default function NavBar() {
               <li>
                 <a
                   href="/"
-                  className={`${selectedTab ==='Home' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
-                //  className={`${getLinkClassName('/')} block py-2 px-3 md:p-0 rounded md:bg-transparent md:dark:text-secondary}`}
-                //  aria-current={router.pathname === '/' ? "page" : undefined}
-                  aria-current={`${selectedTab ==='Home' ? "page" : undefined}`}
-                  onClick={() => handleSelect("Home")}
+                  // className={`${selectedTab ==='Home' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                 className={`${getLinkClassName('/')} block py-2 px-3 md:p-0 rounded md:bg-transparent md:dark:text-secondary}`}
+                 aria-current={router.pathname === '/' ? "page" : undefined}
+                  // aria-current={`${selectedTab ==='Home' ? "page" : undefined}`}
+                  // onClick={() => handleSelect("Home")}
                 >
                   Home
                 </a>
@@ -116,9 +120,11 @@ export default function NavBar() {
               <li>
                 <a
                   href="/why-adopt"
-                  className={` ${selectedTab ==='Why adopt?' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0  rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
-                  aria-current={`${selectedTab ==='Why adopt?' ? "page" : undefined}`}
-                  onClick={() => handleSelect("Why adopt?")}
+                 className={`${getLinkClassName('/why-adopt')} block py-2 px-3 md:p-0 rounded md:bg-transparent md:dark:text-secondary}`}
+                 aria-current={router.pathname === '/why-adopt' ? "page" : undefined}
+                  // className={` ${selectedTab ==='Why adopt?' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0  rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                  // aria-current={`${selectedTab ==='Why adopt?' ? "page" : undefined}`}
+                  // onClick={() => handleSelect("Why adopt?")}
                 >
                   Why adopt?
                 </a>
@@ -126,9 +132,11 @@ export default function NavBar() {
               <li>
                 <a
                   href="/tips"
-                  className={` ${selectedTab ==='Paw-some tips' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
-                  aria-current={`${selectedTab ==='Paw-some tips' ? "page" : undefined}`}
-                  onClick={() => handleSelect("Paw-some tips")}
+                 className={`${getLinkClassName('/tips')} block py-2 px-3 md:p-0 rounded md:bg-transparent md:dark:text-secondary}`}
+                 aria-current={router.pathname === '/tips' ? "page" : undefined}
+                  // className={` ${selectedTab ==='Paw-some tips' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                  // aria-current={`${selectedTab ==='Paw-some tips' ? "page" : undefined}`}
+                  // onClick={() => handleSelect("Paw-some tips")}
                 >
                   Paw-some tips
                 </a>
@@ -136,9 +144,11 @@ export default function NavBar() {
               <li>
                 <a
                   href="/pets"
-                  className={` ${selectedTab ==='Our pets' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0  rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
-                  aria-current={`${selectedTab ==="Our pets" ? "page" : undefined}`}
-                  onClick={() => handleSelect("Our pets")}
+                 className={`${getLinkClassName('/pets')} block py-2 px-3 md:p-0 rounded md:bg-transparent md:dark:text-secondary}`}
+                 aria-current={router.pathname === '/pets' ? "page" : undefined}
+                  // className={` ${selectedTab ==='Our pets' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0  rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                  // aria-current={`${selectedTab ==="Our pets" ? "page" : undefined}`}
+                  // onClick={() => handleSelect("Our pets")}
 
                 >
                   Our pets
@@ -147,12 +157,12 @@ export default function NavBar() {
               <li>
                 <a
                   href="/donate"
-                  className={` ${selectedTab ==='Be a pet hero' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
-                //  className={`${getLinkClassName('/donate')} block py-2 px-3 md:p-0 rounded md:bg-transparent md:dark:text-secondary}`}
-                //  aria-current={router.pathname === '/donate' ? "page" : undefined}
-                aria-current={`${selectedTab ==="Be a pet hero" ? "page" : undefined}`}
+                  // className={` ${selectedTab ==='Be a pet hero' ? 'text-secondary bg-accent lg:bg-none' : "lg:text-white"} block py-2 px-3 md:p-0 rounded md:bg-transparent md:text-secondary md:dark:text-secondary}`}
+                 className={`${getLinkClassName('/donate')} block py-2 px-3 md:p-0 rounded md:bg-transparent md:dark:text-secondary}`}
+                 aria-current={router.pathname === '/donate' ? "page" : undefined}
+                // aria-current={`${selectedTab ==="Be a pet hero" ? "page" : undefined}`}
                   
-                  onClick={() => handleSelect("Be a pet hero")}
+                  // onClick={() => handleSelect("Be a pet hero")}
                 >
                   Be a pet hero
                 </a>
