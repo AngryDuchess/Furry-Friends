@@ -2,9 +2,10 @@
 import PetCard from "../components/PetCard";
 import { Dropdown } from "flowbite-react";
 import { SearchNormal1, ArrowDown2 } from "iconsax-react";
-import { fetchCats, getImage } from "@/lib/api";
+import { fetchCats, getCatImage, getDogImage, fetchDogs } from "@/lib/api";
 import { useEffect, useState } from 'react';
 import withNavBar from "../components/HOC/withNavBar";
+import { shuffleArray } from "@/lib/misc";
 
 function Page() {
   const [data, setData] = useState([]);
@@ -13,11 +14,17 @@ function Page() {
   useEffect(() => {
     const fetchData = async () => {
       const catData = await fetchCats();
+      const dogData = await fetchDogs();
       const catDataWithImages = await Promise.all(catData.map(async (cat) => {
-        const image = await getImage(cat.reference_image_id);
+        const image = await getCatImage(cat.reference_image_id);
         return { ...cat, image };
       }));
-      setData(catDataWithImages);
+      const dogDataWithImages = await Promise.all(dogData.map(async (dog) => {
+        const image = await getDogImage(dog.reference_image_id);
+        return { ...dog, image };
+      }
+      ));
+      setData(shuffleArray([...catDataWithImages, ...dogDataWithImages]));
     };
 
     fetchData();
