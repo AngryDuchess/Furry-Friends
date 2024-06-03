@@ -43,7 +43,7 @@ function Donate() {
             lives of animals in need.
           </p>
         </div>
-        <div className="flex flex-col gap-4 w-1/2">
+        <div className="flex flex-col gap-4 lg:w-1/2">
           <div className="text-dark">
             <p className="font-bold text-xl">Choose an amount to give</p>
             <p className="text-sm">
