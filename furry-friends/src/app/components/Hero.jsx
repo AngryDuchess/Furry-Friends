@@ -2,6 +2,7 @@
 import { merriweather } from "@/app/fonts";
 import { ArrowRight2 } from "iconsax-react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 
 export default function Hero() {
@@ -46,10 +47,13 @@ export default function Hero() {
               <ArrowRight2 size="16" color="#ffffff" variant="Outline" />
             </button>
           </div>
-          <img
-            className="md:h-[600px]"
-            src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716221190/person-creating-online-content-with-their-pets-removebg_1_pw0x9h.png"
-          ></img>
+          <Image
+              alt={'person with their pet'}
+              className="md:h-[600px] w-auto"
+              width={1000}
+              height={1000}
+              src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716221190/person-creating-online-content-with-their-pets-removebg_1_pw0x9h.png"
+          />
         </div>
       </header>
     </>
