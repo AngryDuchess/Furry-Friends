@@ -31,12 +31,12 @@ function Page({ params }) {
     getCatDetails(params.id).then((data) => {
       setData(data);
     });
-  }, []);
+  }, [params.id]);
 
   return (
     <>
       <section className="mx-4 lg:mx-16 my-16 flex flex-col lg:justify-between lg:flex-row gap-4 lg:gap-8 text-dark font-semibold">
-        <div>
+        <div className="flex-grow">
           <Image
             className="rounded-xl"
             width={1000}
@@ -45,7 +45,7 @@ function Page({ params }) {
             alt="pet"
           />
         </div>
-        <div className="flex flex-col gap-6 lg:max-w-sm">
+        <div className="flex-grow flex flex-col gap-6 w-full">
           <div
             className={`${merriweather.className} text-2xl text-dark flex justify-between`}
           >
@@ -71,6 +71,7 @@ function Page({ params }) {
             </div>
           </div>
           <div className="flex flex-col items-start gap-4 rounded-xl p-4 bg-secondarypale border border-secondary">
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
             <p>Hi there, I'm a/an {data?.breeds[0].name}</p>
             <p className="font-normal text-sm">
               {/* I'm a playful Beagle puppy with a nose for adventure and a heart
@@ -85,6 +86,7 @@ function Page({ params }) {
               className="text-white bg-bluebase flex flex-row items-center justify-between gap-4 font-medium rounded-full text-sm px-8 py-4 border-2 border-black shadow-[4px_4px_0px_0px_#000000] text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               onClick={handleModalOpen}
             >
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
               I'm the one!{" "}
               <ArrowRight2 size="16" color="#ffffff" variant="Outline" />
             </button>
