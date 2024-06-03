@@ -121,7 +121,9 @@ export default function TermsModal({ isOpen, onClose }) {
                 <li className="flex flex-col gap-1">
                   <p>8. Disclaimers</p>
                   <p className="font-normal">
+                    {/* eslint-disable-next-line react/no-unescaped-entities */}
                     Furry Friends provides services on an "as-is" and
+                    {/* eslint-disable-next-line react/no-unescaped-entities */}
                     "as-available" basis. We do not warrant that our services
                     will be uninterrupted or error-free. We are not responsible
                     for the behavior or health of pets adopted through our
