@@ -1,4 +1,5 @@
 import { merriweather } from "../fonts";
+import Image from "next/image";
 
 export default function DidYouKnow() {
   return (
@@ -24,7 +25,10 @@ export default function DidYouKnow() {
           }}
         >
           <div className="flex gap-2 items-center text-center">
-            <img
+            <Image
+                alt={'bulb'}
+                width={28}
+                height={28}
               className="w-[28px] h-[28px]"
               src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716734291/light-bulb_1_i0nejh.svg"
             />
@@ -33,8 +37,9 @@ export default function DidYouKnow() {
             </div>
           </div>
             <div>
-              <p className="font-semibold">Cats have a "third eyelid"?</p>
+              <p className="font-semibold">Cats have a &apos;third eyelid&apos;?</p>
               <p>
+                  {/* eslint-disable-next-line react/no-unescaped-entities */}
                 Yep, it's called the nictitating membrane, a thin, whitish-pink
                 layer that slides across their eye like a ninja shield. It keeps
                 their eyes clean and moist
