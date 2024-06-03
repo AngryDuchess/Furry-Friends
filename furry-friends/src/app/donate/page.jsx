@@ -43,7 +43,7 @@ function Donate() {
             lives of animals in need.
           </p>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 w-1/2">
           <div className="text-dark">
             <p className="font-bold text-xl">Choose an amount to give</p>
             <p className="text-sm">
@@ -52,7 +52,7 @@ function Donate() {
               donation, your generosity goes a long way.
             </p>
           </div>
-          <form className="flex flex-col gap-4 border border-greybase pb-4 rounded-lg">
+          <form className="flex flex-col gap-4 border border-greybase pb-4 rounded-lg ">
             <Button.Group className="gap-3 bg-gray-100 text-dark w-full px-2 py-4 border-b border-b-greybase rounded-t-lg">
               <Button
                 className={`w-3/4 ${
