@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation';
 import NavBar from '../core/NavBar';
 
 const withNavBar = (WrappedComponent) => {
+  // eslint-disable-next-line react/display-name
   return (props) => {
     const router = useRouter();
     const authRoutes = ['/signin', '/signup'];
