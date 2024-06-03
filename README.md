@@ -4,14 +4,6 @@ Furry Friends is an online pet adoption center designed to provide pet owners wi
 
 review link - https://intranet.alxswe.com/corrections/32426672/correct
 
-#### Project Objectives
-
--   Convenience: Create a platform where users can shop for pet supplies 24/7 with ease.
--   Product Diversity: Offer a wide range of products for dogs, cats, birds, fish, and small animals.
--   Quality Assurance: Ensure all products meet high standards of quality and safety.
--   Personalized Experience: Provide tailored recommendations and subscription services.
--   Community Engagement: Build a vibrant community for sharing experiences and advice.
--   Customer Support: Deliver exceptional customer service and foster customer loyalty.
 
 #### Key Features
 
