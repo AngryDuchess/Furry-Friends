@@ -1,6 +1,7 @@
 import { merriweather } from "@/app/fonts";
 import { Modal } from "flowbite-react";
 import { CloseCircle } from "iconsax-react";
+import Image from "next/image";
 
 export default function BookingConfirmedModal({ isOpen, onClose }) {
   return (
@@ -41,7 +42,7 @@ export default function BookingConfirmedModal({ isOpen, onClose }) {
           </Modal.Body>
           <div className="flex justify-end">
 
-                <img className="h-[122px]" src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716588238/boss-dog_fminzh.svg" />
+                <Image width={200} height={200} className="h-[122px] w-auto" alt={'boss dog'} src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716588238/boss-dog_fminzh.svg" />
           </div>
         </Modal>
       </div>
