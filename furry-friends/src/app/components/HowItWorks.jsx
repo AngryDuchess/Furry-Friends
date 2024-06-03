@@ -19,7 +19,7 @@ export default function HowItWorks() {
         <p className="text-accent">works?</p>
         </div>
         <div className="flex flex-col gap-12 lg:flex-row justify-between">
-            <div className="flex flex-col justify-center gap-4 items-center max-w-[334]">
+            <div className="flex flex-col justify-center gap-4 items-center w-full max-w-[334px]">
                 <div className="flex items-center justify-center rounded-full bg-palegreen w-[172px] h-[172px]">
                     <Image alt={'cat-phone'} width={200} height={200} className="h-[122px] w-auto" src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716588238/cat-phone_df1sxq.svg" />
                 </div>
@@ -28,7 +28,7 @@ export default function HowItWorks() {
                     <p className="">Sign up in a jiffy! Fill in your details and join our fur-tastic community.</p>
                 </div>
             </div>
-            <div className="flex flex-col justify-center gap-4 items-center max-w-[334]">
+            <div className="flex flex-col justify-center gap-4 items-center w-full max-w-[334px]">
                 <div className="flex items-center justify-center rounded-full bg-accentpalest w-[172px] h-[172px]">
                     <Image alt={'cat-dog'} width={200} height={200} className="h-[122px] w-auto" src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716588239/cat-dog_kye9au.svg" />
                 </div>
@@ -37,7 +37,7 @@ export default function HowItWorks() {
                     <p>Browse our adorable pet profiles. Filter by breed, size, and more to find your perfect match.</p>
                 </div>
             </div>
-            <div className="flex flex-col justify-center gap-4 items-center max-w-[334]">
+            <div className="flex flex-col justify-center gap-4 items-center w-full max-w-[334px]">
                 <div className="flex items-center justify-center rounded-full bg-secondarypale w-[172px] h-[172px]">
                     <Image width={200} height={200}  alt={'boss dog'} className="h-[122px]" src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716588238/boss-dog_fminzh.svg" />
                 </div>
