@@ -3,9 +3,10 @@ import { merriweather } from "@/app/fonts";
 import Link from "next/link";
 import { useState } from "react";
 import TermsModal from "@/app/components/modals/Terms";
-import isAuthenticated from "@/lib/isAuthenticated";
 import { useRouter } from "next/navigation";
-import { Spinner } from "flowbite-react";
+import {Alert, Spinner} from "flowbite-react";
+import Image from "next/image";
+import {InfoCircle} from "iconsax-react";
 
 export default function Page() {
   const router = useRouter();
@@ -24,7 +25,7 @@ export default function Page() {
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
   const handleFirstChange = (e) => setFirstname(e.target.value);
-  
+
   const handleLastChange = (e) => setLastname(e.target.value);
 
   const handlePhoneChange = (e) => setPhone(e.target.value);
@@ -55,7 +56,12 @@ export default function Page() {
             href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            <img src="/logo.svg"></img>
+            <Image 
+            width={64}
+            height={64} 
+            src="/logo.svg" 
+            alt="Logo"
+            className="h-12" />
           </Link>
           <div className="flex flex-col gap-2 my-5 md:mt-14">
 
@@ -180,11 +186,11 @@ export default function Page() {
             </div>
             <p className="text-light text-sm">
               By signing up, you agree to our{" "}
-              <button className="text-bluebase hover:underline" 
+              <button className="text-bluebase hover:underline"
               onClick={() => {setOpenModal(true)}}>
                 terms and conditions
               </button>
-                {openModal && 
+                {openModal &&
                 (<TermsModal isOpen={openModal} onClose={() => setOpenModal(false)}/>)
                 }
             </p>
@@ -204,11 +210,14 @@ export default function Page() {
             </div>
           </form>
         </div>
-        <div className="bg-palepink flex md:flex-grow justify-center items-center overflow-hidden">
-          <img
+        <div className="bg-palepink flex md:flex-grow justify-center items-center w-auto overflow-hidden">
+          <Image
+            width={200}
+            height={200}
+            alt={'person with their pet'}
             className="h-[200px]"
             src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716303452/421ba436690245.57260cab17a3a_zjwjmt.gif"
-            ></img>
+            />
         </div>
       </div>
     </>
