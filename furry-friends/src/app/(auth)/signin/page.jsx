@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { InfoCircle } from "iconsax-react";
 import { Spinner, Alert } from "flowbite-react";
-import isAuthenticated from "@/lib/isAuthenticated";
+import Image from "next/image";
 
 export default function Page() {
   const router = useRouter();
@@ -36,7 +36,6 @@ export default function Page() {
       console.log(user);
       setLoading(false);
     }, 2000);
-    // if (isAuthenticated()) router.push("/");
   };
 
   return (
@@ -47,7 +46,12 @@ export default function Page() {
             href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            <img src="/logo.svg" alt="Logo" />
+            <Image 
+            width={64}
+            height={64} 
+            src="/logo.svg" 
+            alt="Logo"
+            className="h-12" />
           </Link>
           <p
             className={`text-dark ${merriweather.className} text-4xl mb-2 md:mt-14 `}
@@ -140,11 +144,13 @@ export default function Page() {
           </form>
         </div>
         <div className="bg-palepink flex md:flex-grow justify-center items-center overflow-hidden">
-          <img
+          <Image
+            width={200}
+            height={200}
             className="h-[200px]"
             src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716303452/421ba436690245.57260cab17a3a_zjwjmt.gif"
             alt="Cat gif"
-          ></img>
+          />
         </div>
       </div>
     </>
