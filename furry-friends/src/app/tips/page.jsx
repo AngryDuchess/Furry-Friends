@@ -1,11 +1,12 @@
 "use client";
 import withNavBar from "../components/HOC/withNavBar";
 import { merriweather } from "../fonts";
+import Image from "next/image";
 
 function Page() {
   return (
     <>
-      <section className=" mx-4 mt-16 lg:mx-16 text-dark flex flex-col gap-5 lg:gap-8">
+      <section className=" mx-4 mt-16 lg:mx-16 text-dark flex flex-col items-center gap-5 lg:gap-8">
         <div>
           <p
             className={`${merriweather.className} leading-10 text-3xl lg:text-5xl`}
@@ -14,7 +15,10 @@ function Page() {
             <span className="text-accent">New Pet Parents</span>
           </p>
         </div>
-        <img
+        <Image
+            width={1000}
+            height={1000}
+            alt={'man with pet'}
           className="rounded-3xl"
           src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716734770/man-with-his-adorable-pet-cat_1_1_jb0dkp.png"
         />
@@ -107,8 +111,11 @@ function Page() {
             <p className="text-2xl text-center text-accent font-bold">
               THE END!
             </p>
-            <img
-              className="h-12"
+            <Image
+                width={200}
+                height={200}
+                alt={'dog with tongue out'}
+              className=" w-auto h-12"
               src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1717159639/dog-tongue-out_wbvyf7.gif"
             />
           </div>
