@@ -38,7 +38,7 @@ export default function PawsomeTips() {
             </div>
           <button
             type="button"
-            className="text-white bg-accent flex flex-row items-center justify-between gap-4 font-medium rounded-full text-sm px-8 py-4 border-2 border-black shadow-[4px_4px_0px_0px_#000000] text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="text-white bg-accent flex flex-row items-center justify-between hover:bg-accentdeep gap-4 font-medium rounded-full text-sm px-8 py-4 border-2 border-black shadow-[4px_4px_0px_0px_#000000] text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           onClick={() => router.push('/tips')}
           >
             Sniff out more{" "}
