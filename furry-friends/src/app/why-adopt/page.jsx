@@ -1,11 +1,12 @@
 "use client";
 import { merriweather } from "../fonts";
 import withNavBar from "../components/HOC/withNavBar";
+import Image from "next/image";
 
 function Page() {
   return (
     <>
-      <section className=" mx-4 mt-16 lg:mx-16 text-dark flex flex-col gap-5 lg:gap-8">
+      <section className=" mx-4 mt-16 lg:mx-16 text-dark flex flex-col justify-center items-center gap-5 lg:gap-8">
         <div className="flex flex-col gap-3 lg:gap-4">
           <p className="text-accent font-bold text-sm lg:text-lg">Why Adopt?</p>
           <p className={`${merriweather.className} leading-10 text-3xl lg:text-5xl`}>
@@ -13,7 +14,10 @@ function Page() {
             life?
           </p>
         </div>
-        <img
+        <Image
+            width={1000}
+            height={1000}
+            alt={'woman washing dog'}
           className="rounded-3xl"
           src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716688770/smiley-woman-washing-dog-full-shot_2_3_yz7anj.png"
         />
@@ -94,7 +98,7 @@ function Page() {
           </ol>
           <div className="flex justify-center items-baseline">
           <p className="text-2xl text-center text-accent font-bold">THE END!</p>
-          <img className="h-12" src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1717159639/dog-tongue-out_wbvyf7.gif" />
+          <Image width={200} height={200} alt={'dog with tongue out'} className=" w-auto h-12" src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1717159639/dog-tongue-out_wbvyf7.gif" />
           </div>
         </article>
       </section>
