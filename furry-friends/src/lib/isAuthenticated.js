@@ -1,6 +1,7 @@
 "use client"
 const isAuthenticated = () => {
-  if (window === undefined) return;
+  if (typeof window !== 'undefined') {
     return localStorage.getItem('user');
+  }
   }
 export default isAuthenticated;
