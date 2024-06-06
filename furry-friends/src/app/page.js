@@ -10,7 +10,6 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import isAuthenticated from "@/lib/isAuthenticated";
 import withNavBar from "./components/HOC/withNavBar";
-import { collection, getDocs } from "firebase/firestore";
 
 
 function Home() {
@@ -19,7 +18,7 @@ function Home() {
     if (!isAuthenticated()) {
       router.push('/')
     } 
-  }, [])
+  }, [router])
 
   return (
     <>
