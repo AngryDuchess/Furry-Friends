@@ -2,28 +2,83 @@
 import { merriweather } from "../fonts";
 import withNavBar from "../components/HOC/withNavBar";
 import Image from "next/image";
+import { collection, getDocs } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { db } from "@/utils/firebase";
 
 function Page() {
+  const [blogs, setBlogs] = useState([]);
+  const [headerDetails, setHeaderDetails] = useState({})
+
+  const fetchBlogs = async () => {
+    const queryHeader = await getDocs(collection(db, "why-adopt"));
+    const headerArr = [];
+    queryHeader.forEach((head) => {
+      headerArr.push({ id: head.id, ...head.data() });
+      // console.log(head.id, " => ", head.data());
+    });
+    setHeaderDetails(headerArr[0])
+
+    const querySnapshot = await getDocs(collection(db, "why-adopt-tips"));
+    const blogsArray = [];
+    querySnapshot.forEach((blog) => {
+      blogsArray.push({ id: blog.id, ...blog.data() });
+      // console.log(blog.id, " => ", blog.data());
+    });
+    setBlogs(blogsArray); 
+  };
+
+  // const fetchHeading = async () => {
+  //   const querySnapshot = await getDocs(collection(db, "why-adopt"));
+  //   const blogsArray = [];
+  //   querySnapshot.forEach((blog) => {
+  //     blogsArray.push({ id: blog.id, ...blog.data() });
+  //     console.log(blog.id, " => ", blog.data());
+  //   });
+  //   setBlogs(blogsArray); 
+  // }
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
+
+  console.log(headerDetails)
+ 
   return (
     <>
       <section className=" mx-4 mt-16 lg:mx-16 text-dark flex flex-col justify-center items-center gap-5 lg:gap-8">
         <div className="flex flex-col gap-3 lg:gap-4">
-          <p className="text-accent font-bold text-sm lg:text-lg">Why Adopt?</p>
-          <p className={`${merriweather.className} leading-10 text-3xl lg:text-5xl`}>
-            Ready to add a dose of <span className="text-accent">paw-sitivity</span> to your
-            life?
+          <p className="text-accent font-bold text-sm lg:text-lg">{headerDetails?.subtitle}</p>
+          <p
+            className={`${merriweather.className} leading-10 text-3xl lg:text-5xl`}
+          >
+            {headerDetails?.title1} {' '}
+            <span className="text-accent">{headerDetails?.title2}</span> {headerDetails?.title3}
           </p>
         </div>
         <Image
-            width={1000}
-            height={1000}
-            alt={'woman washing dog'}
+          width={1000}
+          height={1000}
+          alt={"woman washing dog"}
           className="rounded-3xl"
-          src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716688770/smiley-woman-washing-dog-full-shot_2_3_yz7anj.png"
+          src={headerDetails?.image}
         />
         <hr />
         <article className="flex flex-col gap-3 lg:w-3/4 mx-auto">
-          <p>
+
+        <ol className="mx-4 flex flex-col gap-4 list-decimal ">
+          {blogs.map(blog => (
+            <li key={blog?.id} className="font-semibold">
+              {blog.title}
+              <p className="font-normal">
+                {blog.content}
+              </p>
+            </li>
+          ))}
+            </ol>
+            </article>
+        <article className="flex flex-col gap-3 lg:w-3/4 mx-auto">
+          {/* <p>
             {" "}
             Here&apos;s why adopting a pet from Furry Friends is the cat&apos;s
             meow (and the dog&apos;s bark):
@@ -86,19 +141,28 @@ function Page() {
             <li className="font-semibold">
               Feel-Good Factor
               <p className="font-normal">
-                There&apos;s nothing quite like the feeling of knowing you&apos;ve made a
-                positive impact. Adopting a pet brings immense joy and
-                satisfaction, knowing you&apos;ve changed an animal&apos;s life for the
-                better. So, what are you waiting for? Unleash happiness in your
-                home by adopting a furry friend today! Click the button below
-                and start your journey to find the perfect pet pal who&apos;s ready
-                to shower you with love and joy.
+                There&apos;s nothing quite like the feeling of knowing
+                you&apos;ve made a positive impact. Adopting a pet brings
+                immense joy and satisfaction, knowing you&apos;ve changed an
+                animal&apos;s life for the better. So, what are you waiting for?
+                Unleash happiness in your home by adopting a furry friend today!
+                Click the button below and start your journey to find the
+                perfect pet pal who&apos;s ready to shower you with love and
+                joy.
               </p>
             </li>
-          </ol>
+          </ol> */}
           <div className="flex justify-center items-baseline">
-          <p className="text-2xl text-center text-accent font-bold">THE END!</p>
-          <Image width={200} height={200} alt={'dog with tongue out'} className=" w-auto h-12" src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1717159639/dog-tongue-out_wbvyf7.gif" />
+            <p className="text-2xl text-center text-accent font-bold">
+              THE END!
+            </p>
+            <Image
+              width={200}
+              height={200}
+              alt={"dog with tongue out"}
+              className=" w-auto h-12"
+              src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1717159639/dog-tongue-out_wbvyf7.gif"
+            />
           </div>
         </article>
       </section>
