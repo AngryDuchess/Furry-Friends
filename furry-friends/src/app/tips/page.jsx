@@ -2,8 +2,27 @@
 import withNavBar from "../components/HOC/withNavBar";
 import { merriweather } from "../fonts";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import { db } from "@/utils/firebase";
+import { collection, getDocs } from "firebase/firestore";
+
 
 function Page() {
+  const [tips, setTips] = useState([]);
+
+  const fetchBlogs = async () => {
+    const querySnapshot = await getDocs(collection(db, "tips"));
+    const blogsArray = [];
+    querySnapshot.forEach((blog) => {
+      blogsArray.push({ id: blog.id, ...blog.data() });
+      console.log(blog.id, " => ", blog.data());
+    });
+    setTips(blogsArray); 
+  };
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
   return (
     <>
       <section className=" mx-4 mt-16 lg:mx-16 text-dark flex flex-col items-center gap-5 lg:gap-8">
@@ -30,16 +49,37 @@ function Page() {
             settle in:
           </p>
           <ol className="mx-4 flex flex-col gap-4 list-decimal ">
-            <li className="font-semibold">
-              Prepare Your Home
+            {tips && tips.map(tip => (
+            <li key={tip?.id} className="font-semibold">
+              {tip?.title}
               <p className="font-normal">
-                Before bringing your new pet home, make sure your space is
-                pet-friendly. Remove any hazardous items, secure loose wires,
-                and set up a cozy area with a bed, food, and water bowls. Think
-                of it as baby-proofing, but with more fur.
+                {tip?.content}
               </p>
             </li>
-            <li className="font-semibold">
+            ))}
+          </ol>
+          <div className="flex justify-center items-baseline">
+            <p className="text-2xl text-center text-accent font-bold">
+              THE END!
+            </p>
+            <Image
+                width={200}
+                height={200}
+                alt={'dog with tongue out'}
+              className=" w-auto h-12"
+              src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1717159639/dog-tongue-out_wbvyf7.gif"
+            />
+          </div>
+        </article>
+      </section>
+    </>
+  );
+}
+
+export default withNavBar(Page);
+
+
+{/* <li className="font-semibold">
               Pet-proof Your Belongings
               <p className="font-normal">
                 Hide your shoes, stash your socks, and say goodbye to your
@@ -105,24 +145,4 @@ function Page() {
               <p className="font-normal">
               Consider getting pet insurance to cover unexpected medical expenses. It&apos;s better to be safe than sorry, and it can save you from hefty vet bills in the long run.
               </p>
-            </li>
-          </ol>
-          <div className="flex justify-center items-baseline">
-            <p className="text-2xl text-center text-accent font-bold">
-              THE END!
-            </p>
-            <Image
-                width={200}
-                height={200}
-                alt={'dog with tongue out'}
-              className=" w-auto h-12"
-              src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1717159639/dog-tongue-out_wbvyf7.gif"
-            />
-          </div>
-        </article>
-      </section>
-    </>
-  );
-}
-
-export default withNavBar(Page);
+            </li> */}
