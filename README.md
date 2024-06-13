@@ -3,9 +3,6 @@
 
 
 Furry Friends is an online pet adoption center designed to provide pet owners with a convenient, reliable, and comprehensive pet adoption experience
-LINK TO DEPLOYED APP 👉 https://furry-friends-ifmj.vercel.app/
-
-review link - https://intranet.alxswe.com/corrections/32426672/correct
 
 
 #### Key Features
