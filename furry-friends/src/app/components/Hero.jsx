@@ -17,7 +17,7 @@ export default function Hero() {
         style={{
           backgroundColor: "#FFCDD2",
           backgroundImage:
-            "url('https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716221277/paws-bg_nkyk44.png')",
+            "url('https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716221277/FurryFriends/paws-bg_nkyk44.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -51,7 +51,7 @@ export default function Hero() {
               className="md:h-[600px] w-auto"
               width={1000}
               height={1000}
-              src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716221190/person-creating-online-content-with-their-pets-removebg_1_pw0x9h.png"
+              src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716221190/FurryFriends/person-creating-online-content-with-their-pets-removebg_1_pw0x9h.png"
           />
         </div>
       </header>
