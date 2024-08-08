@@ -10,7 +10,7 @@ export default function PawsomeTips() {
         className="relative rounded-3xl px-4 md:px-16 py-12 overflow-hidden"
         style={{
           backgroundImage:
-            "url('https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716734770/man-with-his-adorable-pet-cat_1_1_jb0dkp.png')",
+            "url('https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716734770/FurryFriends/man-with-his-adorable-pet-cat_1_1_jb0dkp.png')",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
