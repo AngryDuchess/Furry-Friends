@@ -12,7 +12,7 @@ export default function WhyAdopt() {
         className="bg-white text-dark py-12 px-4 flex flex-col gap-14 lg:px-16 lg:flex-row"
         style={{
           backgroundImage:
-            "url('https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716221277/paws-bg_nkyk44.png')",
+            "url('https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716221277/FurryFriends/paws-bg_nkyk44.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -39,7 +39,7 @@ export default function WhyAdopt() {
             </button>
         </div>
         <div>
-          <Image width={2000} height={2000} alt={'woman washing a dog'} className="rounded-3xl lg:w-[2000px] lg:h-auto" src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716688770/smiley-woman-washing-dog-full-shot_2_3_yz7anj.png" />
+          <Image width={2000} height={2000} alt={'woman washing a dog'} className="rounded-3xl lg:w-[2000px] lg:h-auto" src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716688770/FurryFriends/smiley-woman-washing-dog-full-shot_2_3_yz7anj.png" />
         </div>
       </section>
     </>
