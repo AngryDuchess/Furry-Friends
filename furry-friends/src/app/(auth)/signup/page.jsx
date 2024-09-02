@@ -216,7 +216,7 @@ export default function Page() {
             height={200}
             alt={'person with their pet'}
             className="h-[200px]"
-            src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716303452/421ba436690245.57260cab17a3a_zjwjmt.gif"
+            src="https://res.cloudinary.com/dn5ks1ljf/image/upload/v1716303452/FurryFriends/421ba436690245.57260cab17a3a_zjwjmt.gif"
             />
         </div>
       </div>
